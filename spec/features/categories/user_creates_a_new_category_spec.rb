@@ -7,7 +7,7 @@ describe "User creates a new category" do
     fill_in "category[title]", with: "Things and stuff"
     click_on "Create"
 
-    expect(page).to have_current_path("/categories")
-    expect(page).to have_link("Things and stuff")
+    expect(page).to have_current_path("/categories/#{Category.find_by(title: 'Things and stuff').id}")
+    expect(page).to have_content("Things and stuff")
   end
 end

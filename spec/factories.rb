@@ -1,8 +1,12 @@
 FactoryGirl.define do
 
   factory :company do
-    name "Some Company"
+
     city "Denver"
+
+    sequence :name do |n|
+      "Some Company #{n}"
+    end
 
     factory :company_with_jobs do
       jobs {create_list(:job, 3)}

@@ -7,7 +7,7 @@ describe "User navigates to categories index" do
     visit categories_path
 
     expect(page).to have_content("All Categories")
-    expect(page).to have_link("Sweet Jobs 2")
+    expect(page).to have_link(category2.title)
     expect(page).to have_link("Edit")
     expect(page).to have_link("Delete")
   end
