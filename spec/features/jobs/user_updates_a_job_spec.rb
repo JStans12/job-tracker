@@ -11,8 +11,6 @@ describe "User updates an existing job" do
     fill_in "job_description", with: "make so much money"
     click_on "Update"
 
-    save_and_open_page
-
     expect(page).to have_content "make so much money"
     expect(page).to have_current_path(company_job_path(company, job_one))
   end

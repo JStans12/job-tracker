@@ -38,10 +38,10 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    # @job = Job.find(params[:id])
-    # @company = @job.company
-    # @job.destroy
-    # redirect_to company_jobs_path(@company)
+    @job = Job.find(params[:id])
+    @company = @job.company
+    @job.destroy
+    redirect_to company_jobs_path(@company)
   end
 
   private
