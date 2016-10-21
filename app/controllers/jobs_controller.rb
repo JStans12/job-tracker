@@ -43,7 +43,9 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest)
+    @category = Category.find_by(title: params[:job][:category_id])
+    params[:job][:category_id] = @category.id if @category
+    params.require(:job).permit(:title, :description, :level_of_interest, :category_id)
   end
 
   def set_job
