@@ -2,8 +2,9 @@ require 'rails_helper'
 
 describe "User updates an existing job" do
   scenario "user sees changes on job page" do
+    category = create(:category)
 
-    company = create(:company_with_jobs)
+    company = create(:company_with_jobs_with_categories)
     job_one = company.jobs.first
 
     visit "/companies/#{company.id}/jobs/#{job_one.id}"

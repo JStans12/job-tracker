@@ -10,7 +10,7 @@
   <%= f.number_field :level_of_interest %>
 
   <%= f.label :category_id %>
-  <%= f.select :category_id, Category.pluck(:title) %>
+  <%= f.select :category_id, @category_titles %>
 
   <%= f.submit %>
 <% end %>

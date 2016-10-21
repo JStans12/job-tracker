@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :set_company
+  before_action :set_category_titles, only: [:new, :edit]
 
   def index
     @jobs = @company.jobs
@@ -44,7 +45,7 @@ class JobsController < ApplicationController
 
   def job_params
     @category = Category.find_by(title: params[:job][:category_id])
-    params[:job][:category_id] = @category.id if @category
+    params[:job][:category_id] = @category.id
     params.require(:job).permit(:title, :description, :level_of_interest, :category_id)
   end
 
@@ -54,5 +55,9 @@ class JobsController < ApplicationController
 
   def set_company
     @company = Company.find(params[:company_id])
+  end
+
+  def set_category_titles
+    @category_titles = Category.pluck(:title)
   end
 end

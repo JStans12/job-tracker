@@ -8,7 +8,7 @@ FactoryGirl.define do
       "Some Company #{n}"
     end
 
-    factory :company_with_jobs do
+    factory :company_with_jobs_with_categories do
       jobs {create_list(:job, 3)}
     end
   end
@@ -16,6 +16,8 @@ FactoryGirl.define do
   factory :job do
 
     description "Do stuff for money"
+
+    category {create(:category)}
 
     sequence :title do |n|
       "Title #{n}"
