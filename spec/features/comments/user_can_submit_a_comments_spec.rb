@@ -13,8 +13,6 @@ describe 'User submits a comment on a job' do
     fill_in 'comment[content]', with: "This job is not ok."
     click_on 'Create Comment'
 
-    save_and_open_page
-
     expect(page).to have_content("This job is ok.")
     expect(page).to have_content("This job is not ok.")
   end
