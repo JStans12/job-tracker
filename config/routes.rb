@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :comments, only: [:create]
 
+  resources :contacts, only: [:create]
+
   resources :categories
 
   # The priority is based upon order of creation: first created -> highest priority.
