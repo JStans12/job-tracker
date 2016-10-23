@@ -5,9 +5,13 @@ COMPANIES = ["ESPN", "Aetna", "United Airlines", "Denver Public Schools", "Shopi
 JOBS = ["Engineering", "Development", "Dev Ops", "Quality Assurance", "Teacher", "Product Manager", "Consultant", "Community Manager"]
 CITIES = ["Seattle", "Denver", "Portland", "Indianapolis", "Madison", "Orlando", "San Diego", "Austin", "Las Vegas", "Little Rock", "Boise", "Eugene", "Oakland"]
 
+a = Category.create(title: "Fun jobs")
+b = Category.create(title: "Shit jobs")
+c = Category.create(title: "Regular jobs")
+
 COMPANIES.each do |name|
   company = Company.create!(name: name, city: CITIES.sample)
   10.times do |num|
-    company.jobs.create!(title: JOBS.sample, description: "What a great position!", level_of_interest: num + rand(100))
+    company.jobs.create!(title: JOBS.sample, description: "What a great position!", level_of_interest: num + rand(100), category: [a,b,c].sample)
   end
 end
