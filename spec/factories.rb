@@ -1,12 +1,4 @@
 FactoryGirl.define do
-  factory :contact do
-    name "MyString"
-    position "MyString"
-    email "MyString"
-  end
-  factory :comment do
-    content "MyText"
-  end
 
   factory :company do
 
@@ -34,6 +26,10 @@ FactoryGirl.define do
     sequence :level_of_interest do |n|
       n
     end
+
+    factory :job_with_company do
+      company {create(:company)}
+    end
   end
 
   factory :category do
@@ -43,7 +39,7 @@ FactoryGirl.define do
     end
 
     factory :category_with_jobs do
-      jobs {create_list(:job, 3)}
+      jobs {create_list(:job_with_company, 3)}
     end
   end
 end

@@ -1,5 +1,11 @@
 <h2><%= @category.title %></h2>
 
-<% @category.jobs.each do |job| %>
-  <ul><%= job.title %></ul>
-<% end %>
+<table class="table">
+  <th>Title</th><th>Company</th>
+  <% @category.jobs.each do |job| %>
+  <tr>
+    <td><%= link_to job.title, company_job_path(job.company, job) %></td>
+    <td><%= link_to job.company.name, company_path(job.company) %></td>
+  </tr>
+  <% end %>
+</table>

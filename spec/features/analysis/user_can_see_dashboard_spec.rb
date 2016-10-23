@@ -21,8 +21,8 @@ describe "user navigates to /dashboard" do
     within(:css, '.top_three') do
       expect(page).to have_content("Company Name")
       expect(page).to have_content("Level of Interest")
-      expect(page).to have_content("Some Company 16")
-      expect(page).to have_content(48)
+      expect(page).to have_content("Some Company 20")
+      expect(page).to have_content(49)
     end
   end
 

@@ -2,7 +2,7 @@
   <tr><td><b>Title: </td><td><%= @job.title %></td></tr>
   <tr><td><b>Description: </td><td><%= @job.description %></td></tr>
   <tr><td><b>Level of Interest: </td><td><%= @job.level_of_interest %></td></tr>
-  <tr><td><b>Category: </td><td><%= @job.category.title %></td></tr>
+  <tr><td><b>Category: </td><td><%= link_to @job.category.title, category_path(@job.category) %></td></tr>
   <tr><td><b>Company: </td><td><%= link_to @job.company.name, company_path(@job.company) %></td>
 </table>
 
