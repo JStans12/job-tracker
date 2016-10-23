@@ -14,7 +14,19 @@
   <th>Comapny Name</th><th>Level of Interest</th>
   <% @top_three.each do |company| %>
   <tr>
-    <td><%= company.name %></td><td><%= company.jobs.average(:level_of_interest).to_f %>
+    <td><%= company.name %></td>
+    <td><%= company.jobs.average(:level_of_interest).to_f %></td>
   </tr>
+  <% end %>
+</table>
+
+<h3>Companies by Location</h3>
+<table>
+  <th>Locaton</th><th>Number of Companies</th>
+  <% @companies_by_location.each do |location, count| %>
+    <tr>
+      <td><%= link_to location, "/companies?location=#{location}" %></td>
+      <td><%= count %></td>
+    </tr>
   <% end %>
 </table>

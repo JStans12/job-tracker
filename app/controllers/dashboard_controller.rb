@@ -10,6 +10,9 @@ class DashboardController < ApplicationController
       company.jobs.average(:level_of_interest)
     end.last(3).reverse
 
-
+    @companies_by_location = Company.all.pluck(:city).reduce({}) do |result, location|
+      result[location] = Company.where(city: location).count
+      result
+    end
   end
 end
