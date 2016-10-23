@@ -4,6 +4,9 @@ class CompaniesController < ApplicationController
     if params[:sort] == "location"
       @companies = Company.order(:city)
     end
+    if params[:location]
+      @companies = Company.where(city: params[:location])
+    end
   end
 
   def new

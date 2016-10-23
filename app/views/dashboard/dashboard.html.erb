@@ -8,3 +8,13 @@
     </tr>
   <% end %>
 </table>
+
+<h3>Top Three Companies by Job Interest Level</h3>
+<table>
+  <th>Comapny Name</th><th>Level of Interest</th>
+  <% @top_three.each do |company| %>
+  <tr>
+    <td><%= company.name %></td><td><%= company.jobs.average(:level_of_interest).to_f %>
+  </tr>
+  <% end %>
+</table>

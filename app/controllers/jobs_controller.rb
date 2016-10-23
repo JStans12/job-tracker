@@ -1,7 +1,15 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  before_action :set_company
+  before_action :set_company, except: [:all_jobs]
   before_action :set_category_titles, only: [:new, :edit]
+
+  def all_jobs
+    @jobs = Job.all
+    if params[:sort] == 'interest'
+      @jobs = Job.order('level_of_interest DESC')
+    end
+    render :all_jobs
+  end
 
   def index
     @jobs = @company.jobs
