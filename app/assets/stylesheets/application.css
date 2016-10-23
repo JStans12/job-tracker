@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+
+ .header {
+   font-family: courier;
+ }
+
+ .dashboard_container {
+   display: inline-block;
+   margin-left: 20px;
+   margin-right: 20px;
+ }
+
+ body {
+  background-color: #dddddd;
+}
+
+table {
+  background-color: #cccccc;
+  border-collapse: collapse;
+  margin: 0px auto;
+}
+
+td, th {
+  border: 1px solid #999;
+  padding: 5px;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #deedee;
+}
