@@ -10,36 +10,27 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require bootstrap.min
  *= require_tree .
  *= require_self
  */
 
- .header {
-   font-family: courier;
- }
-
- .dashboard_container {
-   display: inline-block;
-   margin-left: 20px;
-   margin-right: 20px;
- }
-
- body {
-  background-color: #dddddd;
+.dashboard_container {
+  display: inline-block;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-table {
-  background-color: #cccccc;
-  border-collapse: collapse;
-  margin: 0px auto;
+.job-show-table {
+  width: 500px;
 }
 
-td, th {
-  border: 1px solid #999;
-  padding: 5px;
-  text-align: left;
+.site-title {
+  font-family: courier;
+  font-size: 28px;
+  color: #666666;
 }
 
-tr:nth-child(even) {
-    background-color: #deedee;
+.site-header {
+  padding-bottom: 20px;
 }

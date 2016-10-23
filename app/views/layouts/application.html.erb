@@ -8,18 +8,31 @@
 </head>
 <body>
 
-  <div class="header">
-    <div class="navbar">
-      <%= link_to "Companies", '/companies?sort=location' %>
-      <%= link_to "Jobs", '/jobs?sort=interest' %>
-      <%= link_to "Dashboard", dashboard_path %>
+
+  <nav class="navbar navbar-default navbar-static-top site-header">
+    <div class="container">
+      <div class="navbar-header">
+        <h3 class="site-title">Job Tracker: Revolutionizing the way you track jobs</h3>
+      </div>
+      <div id="navbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Companies", '/companies?sort=location' %></li>
+          <li><%= link_to "Jobs", '/jobs?sort=interest' %></li>
+          <li><%= link_to "Dashboard", dashboard_path %></li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </nav>
 
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, class: name %>
   <% end %>
-<%= yield %>
+
+<div class="container">
+  <div class="jumbotron">
+    <%= yield %>
+  </div>
+</div>
 
 </body>
 </html>

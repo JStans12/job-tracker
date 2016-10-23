@@ -1,6 +1,6 @@
 <div class="dashboard_container">
-  <h3>Jobs by level of interest</h3>
-  <table class="jobs_by_interest">
+  <h4>Jobs by level of interest</h4>
+  <table class="jobs_by_interest table">
     <th>Interest Level</th><th>Number of Jobs</th>
     <% @jobs_by_interest.each do |interest, count| %>
       <tr>
@@ -12,12 +12,12 @@
 </div>
 
 <div class="dashboard_container">
-  <h3>Top Three Companies by Job Interest Level</h3>
-  <table class="top_three">
+  <h4>Top Three Companies by Job Interest Level</h4>
+  <table class="top_three table">
     <th>Company Name</th><th>Level of Interest</th>
     <% @top_three.each do |company| %>
       <tr>
-        <td><%= company.name %></td>
+        <td><%= link_to company.name, company %></td>
         <td><%= company.jobs.average(:level_of_interest).to_f %></td>
       </tr>
     <% end %>
@@ -25,8 +25,8 @@
 </div>
 
 <div class="dashboard_container">
-  <h3>Companies by Location</h3>
-  <table class="companies_by_location">
+  <h4>Companies by Location</h4>
+  <table class="companies_by_location table">
     <th>Location</th><th>Number of Companies</th>
     <% @companies_by_location.each do |location, count| %>
       <tr>
