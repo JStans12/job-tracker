@@ -10,7 +10,7 @@ class Company < ActiveRecord::Base
     end.last(3).reverse
   end
 
-  def self.sort_by_location
+  def self.count_by_location
     self.all.pluck(:city).reduce({}) do |result, location|
       result[location] = Company.where(city: location).count
       result

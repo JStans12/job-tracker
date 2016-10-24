@@ -5,6 +5,6 @@ class DashboardController < ApplicationController
 
     @top_three = Company.top_three_by_interest
 
-    @companies_by_location = Company.sort_by_location
+    @companies_by_location = Company.count_by_location
   end
 end
