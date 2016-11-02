@@ -1,10 +1,26 @@
-Title: <%= @job.title %>
-<br>
+<table class="table job-show-table">
+  <tr><td><b>Title: </td><td><%= @job.title %></td></tr>
+  <tr><td><b>Description: </td><td><%= @job.description %></td></tr>
+  <tr><td><b>Level of Interest: </td><td><%= @job.level_of_interest %></td></tr>
+  <tr><td><b>Category: </td><td><%= link_to @job.category.title, category_path(@job.category) %></td></tr>
+  <tr><td><b>Company: </td><td><%= link_to @job.company.name, company_path(@job.company) %></td>
+</table>
 
-Description: <%= @job.description %>
-<br>
+<h3>Comments</h3>
+<% @comments.reverse.each do |comment| %>
+  <p><%= comment.content %></p>
+<% end %>
 
-Level of Interest: <%= @job.level_of_interest %>
-<br>
+<h3>New Comment</h3>
+<%= form_for @comment do |f| %>
 
-Company: <%= link_to @job.company.name, company_path(@job.company) %>
+  <%= f.hidden_field :job_id, value: @job.id %>
+
+  <%= f.text_field :content %>
+
+  <%= f.submit %>
+<% end %>
+<br>
+<br>
+<%= link_to "Edit Job", edit_company_job_path(@company, @job) %>
+<%= link_to "Delete Job", company_job_path(@company, @job), method: :delete %>

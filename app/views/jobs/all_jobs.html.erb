@@ -1,0 +1,13 @@
+<h3>All Jobs</h3>
+
+<table class="table">
+  <th>Company</th><th>Title</th><th>Desciption</th><th>Level of Interest</th>
+  <% @jobs.each do |job| %>
+    <tr>
+      <td><%= link_to job.company.name, company_jobs_path(job.company, job) %></td>
+      <td><%= link_to job.title, company_jobs_path(job.company) %></td>
+      <td><%= job.description %></td>
+      <td><%= job.level_of_interest %></td>
+    </tr>
+  <% end %>
+</table>

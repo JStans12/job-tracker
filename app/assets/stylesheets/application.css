@@ -10,6 +10,27 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require bootstrap.min
  *= require_tree .
  *= require_self
  */
+
+.dashboard_container {
+  display: inline-block;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.job-show-table {
+  width: 500px;
+}
+
+.site-title {
+  font-family: courier;
+  font-size: 28px;
+  color: #666666;
+}
+
+.site-header {
+  padding-bottom: 20px;
+}

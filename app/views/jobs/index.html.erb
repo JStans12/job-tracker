@@ -1,5 +1,44 @@
-All Jobs for <strong><%= @company.name %></strong>
+<h3>All Jobs for <%= @company.name %></h3>
 
-<% @jobs.each do |job| %>
-  <ul><%= job.title %> at <%= job.company.name %></ul>
+<table class="table">
+  <% @jobs.each do |job| %>
+    <tr>
+      <td><%= link_to job.title, company_job_path(@company, job)%></td>
+      <td><%= job.description %></td>
+    </tr>
+  <% end %>
+</table>
+
+<% unless @company.contacts.empty? %>
+<h4>Contacts</h4>
+<table class="table">
+  <th>Name</th><th>Position</th><th>Email</th>
+  <% @contacts.each do |contact| %>
+    <tr>
+      <td><%= contact.name %></td>
+      <td><%= contact.position %></td>
+      <td><%= contact.email %></td>
+    </tr>
+  <% end %>
+</table>
 <% end %>
+
+<h4>New Contact</h4>
+<%= form_for @contact do |f| %>
+
+  <%= f.hidden_field :company_id, value: @company.id %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :position %>
+  <%= f.text_field :position %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.submit %>
+<% end %>
+<br>
+<br>
+<%= link_to "Create New Job at #{@company.name}", new_company_job_path(@company) %>
